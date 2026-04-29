@@ -8,6 +8,8 @@
     --accent-brown: #8B5A2B;
     --text-dark: #2C3E50;
     --shadow-color: rgba(107, 68, 35, 0.1);
+    --whatsapp-green: #25D366;
+    --whatsapp-hover: #1DA851;
 }
 
 /* Reset y base */
@@ -705,5 +707,227 @@ body {
         background: var(--dark-brown) !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+    }
+
+    .floating-whatsapp,
+    .whatsapp-btn,
+    .contact-cta-section {
+        display: none !important;
+    }
+}
+
+/* WhatsApp CTA Styles */
+.cta-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: var(--whatsapp-green);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.whatsapp-btn:hover {
+    background: var(--whatsapp-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn:hover::before {
+    left: 100%;
+}
+
+.whatsapp-btn i {
+    font-size: 1.3rem;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-btn.primary {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+}
+
+.whatsapp-btn.secondary {
+    font-size: 1.2rem;
+    padding: 1.2rem 2.5rem;
+}
+
+/* Contact CTA Section */
+.contact-cta-section {
+    background: linear-gradient(135deg, var(--sage-green), var(--light-sage));
+    padding: 3rem 2rem;
+    text-align: center;
+    margin: 3rem 0 0 0;
+}
+
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-content h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: var(--cream-white);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.floating-whatsapp a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--whatsapp-green);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.floating-whatsapp a:hover {
+    background: var(--whatsapp-hover);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.floating-whatsapp i {
+    font-size: 1.8rem;
+    animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Mobile Responsive for WhatsApp buttons */
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        font-size: 1rem;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .whatsapp-btn.secondary {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+    }
+
+    .cta-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .cta-content p {
+        font-size: 1.1rem;
+    }
+
+    .floating-whatsapp {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .floating-whatsapp a {
+        width: 55px;
+        height: 55px;
+    }
+
+    .floating-whatsapp i {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-section {
+        margin-top: 1.5rem;
+    }
+
+    .whatsapp-btn {
+        font-size: 0.95rem;
+        padding: 0.8rem 1.2rem;
+    }
+
+    .whatsapp-btn.primary {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+    }
+
+    .whatsapp-btn.secondary {
+        font-size: 1rem;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .contact-cta-section {
+        padding: 2rem 1rem;
+    }
+
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+    }
+
+    .floating-whatsapp {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .floating-whatsapp a {
+        width: 50px;
+        height: 50px;
+    }
+
+    .floating-whatsapp i {
+        font-size: 1.4rem;
     }
 }
