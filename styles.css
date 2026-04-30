@@ -20,7 +20,7 @@
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Crimson Text', Georgia, serif;
     line-height: 1.6;
     color: var(--text-dark);
     background: linear-gradient(135deg, var(--cream-white) 0%, var(--light-sage) 100%);
@@ -30,10 +30,11 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-weight: 600;
     margin-bottom: 1rem;
     color: white;
+    letter-spacing: 0.5px;
 }
 
 /* Navigation Styles */
@@ -63,10 +64,12 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
+    font-family: 'EB Garamond', Georgia, serif;
     color: var(--dark-brown);
     text-decoration: none;
+    letter-spacing: 1px;
 }
 
 .nav-brand i {
@@ -94,7 +97,8 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-dark);
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-family: 'Crimson Text', Georgia, serif;
     border-radius: 8px;
     transition: all 0.3s ease;
     position: relative;
