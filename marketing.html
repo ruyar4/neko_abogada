@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Kit — @laniico_</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F5F0E8;
+    --noir: #0D0D0D;
+    --blush: #C9967A;
+    --taupe: #8B7355;
+    --soft: #E8E0D4;
+  }
+  body { background: var(--cream); color: var(--noir); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    max-width: 800px;
+    margin: 0 auto 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--cream);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('nicole_cover.png');
+    background-size: cover;
+    background-position: center top;
+    filter: brightness(0.45) saturate(0.8);
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, rgba(13,13,13,0.05) 40%, rgba(13,13,13,0.75) 75%, rgba(13,13,13,0.97) 100%);
+    z-index: 1;
+  }
+  .hero-top {
+    position: absolute; top: 50px; left: 60px; right: 60px;
+    display: flex; justify-content: space-between;
+    z-index: 2;
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 60px 0; }
+  .handle { font-size: 12px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--blush); }
+  .year { font-size: 12px; letter-spacing: 3px; color: rgba(245,240,232,0.5); }
+  .media-kit-label { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--blush); margin-bottom: 16px; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: 76px; font-weight: 900; line-height: 0.95; letter-spacing: -2px; margin-bottom: 8px; }
+  .hero-name em { font-style: italic; color: var(--blush); }
+  .hero-tagline { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: rgba(245,240,232,0.6); margin-top: 16px; }
+  .hero-bottom {
+    position: relative; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(245,240,232,0.15);
+    padding: 30px 60px 50px; margin-top: 40px;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--blush); display: block; }
+  .hero-stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,240,232,0.45); display: block; margin-top: 4px; }
+  .divider-line { width: 1px; height: 50px; background: rgba(245,240,232,0.15); }
+
+  .section { background: var(--cream); max-width: 800px; margin: 2px auto; padding: 60px; }
+  .section-dark { background: var(--noir); color: var(--cream); }
+  .section-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--blush); margin-bottom: 40px; display: flex; align-items: center; gap: 16px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: 0.3; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .about-text { font-family: 'Playfair Display', serif; font-size: 20px; line-height: 1.6; }
+  .about-text em { font-style: italic; color: var(--blush); }
+  .about-details { display: flex; flex-direction: column; gap: 20px; }
+  .detail-item { border-bottom: 1px solid rgba(13,13,13,0.1); padding-bottom: 16px; }
+  .detail-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--taupe); margin-bottom: 4px; }
+  .detail-value { font-size: 14px; font-weight: 500; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; max-width: 800px; margin: 2px auto; }
+  .stat-card { background: var(--soft); padding: 40px 20px; text-align: center; }
+  .stat-card:nth-child(2) { background: var(--blush); color: white; }
+  .stat-card:nth-child(2) .stat-sub { color: rgba(255,255,255,0.7); }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 900; display: block; line-height: 1; margin-bottom: 8px; }
+  .stat-sub { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--taupe); }
+
+  .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px; }
+  .content-pill { border: 1px solid rgba(245,240,232,0.2); padding: 24px 16px; text-align: center; }
+  .content-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+  .content-name { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--blush); font-weight: 500; }
+
+  .brands-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 10px; }
+  .brand-tag { border: 1px solid rgba(13,13,13,0.15); padding: 18px 24px; display: flex; align-items: center; gap: 14px; }
+  .brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blush); flex-shrink: 0; }
+  .brand-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; }
+
+  .rates-list { display: flex; flex-direction: column; gap: 2px; margin-top: 10px; }
+  .rate-row { background: rgba(245,240,232,0.05); display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; border-left: 3px solid transparent; }
+  .rate-row:nth-child(odd) { border-left-color: var(--blush); }
+  .rate-format { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,240,232,0.6); }
+  .rate-price { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--cream); }
+  .rate-price span { font-size: 11px; color: var(--blush); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+
+  .footer { background: var(--blush); color: white; max-width: 800px; margin: 2px auto 0; padding: 50px 60px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-name { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; font-style: italic; }
+  .footer-contact { text-align: right; }
+  .footer-contact a { display: block; color: white; text-decoration: none; font-size: 13px; opacity: 0.9; margin-bottom: 6px; }
+  .footer-handles { display: flex; gap: 20px; margin-top: 10px; justify-content: flex-end; }
+  .footer-handle { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-top">
+    <span class="handle">@laniico_</span>
+    <span class="year">2026</span>
+  </div>
+  <div class="hero-content">
+    <p class="media-kit-label">Media Kit</p>
+    <h1 class="hero-name">Nicole<br><em>Sepúlveda</em></h1>
+    <p class="hero-tagline">Abogada · Creadora de Contenido · Chile</p>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-stat"><span class="hero-stat-num">28,9K</span><span class="hero-stat-label">Instagram</span></div>
+    <div class="divider-line"></div>
+    <div class="hero-stat"><span class="hero-stat-num">9,6K</span><span class="hero-stat-label">TikTok</span></div>
+    <div class="divider-line"></div>
+    <div class="hero-stat"><span class="hero-stat-num">4,1%</span><span class="hero-stat-label">Engagement</span></div>
+    <div class="divider-line"></div>
+    <div class="hero-stat"><span class="hero-stat-num">83K</span><span class="hero-stat-label">Views/mes</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Sobre mí</p>
+  <div class="about-grid">
+    <div class="about-text">Soy Nicole, abogada y creadora de contenido desde <em>Linares, Chile.</em> Comparto estilo de vida, viajes, moda y contenido educativo de derecho con una comunidad auténtica y comprometida.</div>
+    <div class="about-details">
+      <div class="detail-item"><p class="detail-label">Plataforma principal</p><p class="detail-value">Instagram @laniico_</p></div>
+      <div class="detail-item"><p class="detail-label">Ubicación</p><p class="detail-value">Linares, Chile 🇨🇱</p></div>
+      <div class="detail-item"><p class="detail-label">Categorías</p><p class="detail-value">Lifestyle · Moda · Viajes · Derecho</p></div>
+      <div class="detail-item"><p class="detail-label">Idioma</p><p class="detail-value">Español</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card"><span class="stat-num">28,9K</span><span class="stat-sub">Seguidores Instagram</span></div>
+  <div class="stat-card"><span class="stat-num">4,1%</span><span class="stat-sub">Engagement rate</span></div>
+  <div class="stat-card"><span class="stat-num">83K</span><span class="stat-sub">Views / mes</span></div>
+  <div class="stat-card"><span class="stat-num">9,6K</span><span class="stat-sub">Seguidores TikTok</span></div>
+</div>
+
+<div class="section section-dark">
+  <p class="section-label" style="color:var(--blush)">Contenido</p>
+  <div class="content-grid">
+    <div class="content-pill"><span class="content-icon">✈️</span><span class="content-name">Viajes</span></div>
+    <div class="content-pill"><span class="content-icon">👗</span><span class="content-name">Moda & Outfits</span></div>
+    <div class="content-pill"><span class="content-icon">⚖️</span><span class="content-name">Derecho</span></div>
+    <div class="content-pill"><span class="content-icon">🧘</span><span class="content-name">Yoga & Bienestar</span></div>
+    <div class="content-pill"><span class="content-icon">✨</span><span class="content-name">Lifestyle</span></div>
+    <div class="content-pill"><span class="content-icon">💄</span><span class="content-name">Belleza</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="section-label">Colaboraciones</p>
+  <div class="brands-grid">
+    <div class="brand-tag"><div class="brand-dot"></div><span class="brand-name">L'Oréal</span></div>
+    <div class="brand-tag"><div class="brand-dot"></div><span class="brand-name">Philips</span></div>
+    <div class="brand-tag"><div class="brand-dot"></div><span class="brand-name">Gillette</span></div>
+    <div class="brand-tag"><div class="brand-dot"></div><span class="brand-name">Secret</span></div>
+  </div>
+</div>
+
+<div class="section section-dark">
+  <p class="section-label" style="color:var(--blush)">Tarifas</p>
+  <div class="rates-list">
+    <div class="rate-row"><span class="rate-format">Reel Instagram</span><span class="rate-price">$400–500 <span>USD</span></span></div>
+    <div class="rate-row"><span class="rate-format">Post Foto</span><span class="rate-price">$250–350 <span>USD</span></span></div>
+    <div class="rate-row"><span class="rate-format">Stories (pack 3–5)</span><span class="rate-price">$150–200 <span>USD</span></span></div>
+    <div class="rate-row"><span class="rate-format">Video TikTok</span><span class="rate-price">$100–200 <span>USD</span></span></div>
+    <div class="rate-row"><span class="rate-format">Pack Completo</span><span class="rate-price">$700–900 <span>USD</span></span></div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-name">Nicole Sepúlveda</div>
+  <div class="footer-contact">
+    <a href="mailto:Nicole@abogadasepulveda">Nicole@abogadasepulveda</a>
+    <div class="footer-handles">
+      <span class="footer-handle">@laniico_ Instagram</span>
+      <span class="footer-handle">TikTok</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
